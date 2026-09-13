@@ -13,7 +13,7 @@ import android.view.Gravity
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -26,8 +26,11 @@ class MainActivity : Activity() {
     private lateinit var webView: WebView
     private lateinit var status: TextView
     private lateinit var progress: ProgressBar
+    private lateinit var drawer: LinearLayout
+    private lateinit var scrim: View
     private val executor = Executors.newSingleThreadExecutor()
     private var showingLive = true
+    private var drawerOpen = false
 
     companion object {
         private const val REQ_EXPORT = 2001
@@ -42,29 +45,48 @@ class MainActivity : Activity() {
         if (saved.exists()) loadLiveHtml(saved.readText()) else loadBundledDashboard()
     }
 
+    private fun dp(value: Int): Int = (value * resources.displayMetrics.density).toInt()
+
     private fun buildUi() {
-        val root = LinearLayout(this).apply {
+        val root = FrameLayout(this).apply {
+            setBackgroundColor(Color.rgb(7, 16, 29))
+        }
+
+        val main = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setBackgroundColor(Color.rgb(7, 16, 29))
         }
-        val bar = LinearLayout(this).apply {
+
+        // Compact top bar: only the hamburger remains here. All actions live in the side drawer.
+        val topBar = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            setPadding(8, 8, 8, 8)
+            setPadding(dp(8), dp(4), dp(12), dp(4))
             setBackgroundColor(Color.rgb(11, 25, 42))
         }
-        fun button(label: String, action: () -> Unit): Button = Button(this).apply {
-            text = label
-            textSize = 11f
-            isAllCaps = false
-            setOnClickListener { action() }
-            layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f).apply { setMargins(3,0,3,0) }
+
+        val hamburger = TextView(this).apply {
+            text = "☰"
+            textSize = 28f
+            setTextColor(Color.WHITE)
+            gravity = Gravity.CENTER
+            contentDescription = "Ouvrir le menu"
+            isClickable = true
+            isFocusable = true
+            setPadding(dp(10), 0, dp(10), 0)
+            setOnClickListener { toggleDrawer() }
         }
-        bar.addView(button("Dashboard") { showDashboardChoice() })
-        bar.addView(button("Données") { showDataMenu() })
-        bar.addView(button("Actualiser") { refreshDashboard() })
-        bar.addView(button("Exporter") { exportZip() })
-        bar.addView(button("PDF") { printPdf() })
+
+        val title = TextView(this).apply {
+            text = "Portfolio Tracker"
+            textSize = 17f
+            setTextColor(Color.WHITE)
+            gravity = Gravity.CENTER_VERTICAL
+            setPadding(dp(6), 0, 0, 0)
+        }
+
+        topBar.addView(hamburger, LinearLayout.LayoutParams(dp(52), dp(52)))
+        topBar.addView(title, LinearLayout.LayoutParams(0, dp(52), 1f))
 
         webView = WebView(this).apply {
             webViewClient = WebViewClient()
@@ -72,28 +94,130 @@ class MainActivity : Activity() {
             settings.domStorageEnabled = true
             settings.allowFileAccess = true
             settings.allowContentAccess = true
-            setBackgroundColor(Color.rgb(7,16,29))
+            setBackgroundColor(Color.rgb(7, 16, 29))
             layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f)
         }
+
         val footer = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            setPadding(12,6,12,6)
-            setBackgroundColor(Color.rgb(11,25,42))
+            setPadding(dp(12), dp(6), dp(12), dp(6))
+            setBackgroundColor(Color.rgb(11, 25, 42))
         }
+
         progress = ProgressBar(this).apply { visibility = View.GONE }
         status = TextView(this).apply {
             text = "V5.7 Android · prêt"
-            setTextColor(Color.rgb(180,205,232))
+            setTextColor(Color.rgb(180, 205, 232))
             textSize = 11f
-            setPadding(10,0,0,0)
+            setPadding(dp(10), 0, 0, 0)
         }
-        footer.addView(progress, LinearLayout.LayoutParams(34,34))
+        footer.addView(progress, LinearLayout.LayoutParams(dp(34), dp(34)))
         footer.addView(status, LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f))
-        root.addView(bar)
-        root.addView(webView)
-        root.addView(footer)
+
+        main.addView(topBar)
+        main.addView(webView)
+        main.addView(footer)
+        root.addView(main, FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT))
+
+        // Dark overlay outside the drawer. Tapping it closes the menu.
+        scrim = View(this).apply {
+            setBackgroundColor(Color.argb(145, 0, 0, 0))
+            visibility = View.GONE
+            alpha = 0f
+            setOnClickListener { closeDrawer() }
+        }
+        root.addView(scrim, FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT))
+
+        val drawerWidth = dp(300)
+        drawer = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(dp(14), dp(18), dp(14), dp(16))
+            setBackgroundColor(Color.rgb(13, 30, 50))
+            translationX = -drawerWidth.toFloat()
+            visibility = View.INVISIBLE
+            elevation = dp(16).toFloat()
+        }
+
+        drawer.addView(TextView(this).apply {
+            text = "Portfolio Tracker"
+            textSize = 21f
+            setTextColor(Color.WHITE)
+            setPadding(dp(10), dp(6), dp(10), dp(2))
+        })
+        drawer.addView(TextView(this).apply {
+            text = "Menu"
+            textSize = 12f
+            setTextColor(Color.rgb(150, 180, 210))
+            setPadding(dp(10), 0, dp(10), dp(16))
+        })
+
+        addDrawerItem("▣  Dashboard") { showDashboardChoice() }
+        addDrawerItem("☷  Données / CSV") { showDataMenu() }
+        addDrawerItem("↻  Actualiser") { refreshDashboard() }
+        addDrawerItem("⇧  Exporter") { exportZip() }
+        addDrawerItem("▤  PDF") { printPdf() }
+
+        // Push the version label to the bottom of the side menu.
+        drawer.addView(View(this), LinearLayout.LayoutParams(1, 0, 1f))
+        drawer.addView(TextView(this).apply {
+            text = "Android V1.1 · moteur V5.7"
+            textSize = 11f
+            setTextColor(Color.rgb(130, 160, 190))
+            setPadding(dp(10), dp(10), dp(10), dp(4))
+        })
+
+        root.addView(
+            drawer,
+            FrameLayout.LayoutParams(drawerWidth, FrameLayout.LayoutParams.MATCH_PARENT, Gravity.START)
+        )
+
         setContentView(root)
+    }
+
+    private fun addDrawerItem(label: String, action: () -> Unit) {
+        val item = TextView(this).apply {
+            text = label
+            textSize = 16f
+            setTextColor(Color.rgb(225, 237, 249))
+            gravity = Gravity.CENTER_VERTICAL
+            setPadding(dp(16), dp(15), dp(12), dp(15))
+            isClickable = true
+            isFocusable = true
+            setOnClickListener {
+                closeDrawer()
+                // Small delay lets the closing animation start before dialogs / pickers appear.
+                postDelayed({ action() }, 120)
+            }
+        }
+        drawer.addView(item, LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT).apply {
+            setMargins(0, dp(2), 0, dp(2))
+        })
+    }
+
+    private fun toggleDrawer() {
+        if (drawerOpen) closeDrawer() else openDrawer()
+    }
+
+    private fun openDrawer() {
+        if (drawerOpen) return
+        drawerOpen = true
+        scrim.visibility = View.VISIBLE
+        drawer.visibility = View.VISIBLE
+        scrim.animate().alpha(1f).setDuration(180).start()
+        drawer.animate().translationX(0f).setDuration(220).start()
+    }
+
+    private fun closeDrawer() {
+        if (!drawerOpen) return
+        drawerOpen = false
+        val hiddenX = -dp(300).toFloat()
+        scrim.animate().alpha(0f).setDuration(160).withEndAction {
+            if (!drawerOpen) scrim.visibility = View.GONE
+        }.start()
+        drawer.animate().translationX(hiddenX).setDuration(200).withEndAction {
+            if (!drawerOpen) drawer.visibility = View.INVISIBLE
+        }.start()
     }
 
     private fun showDashboardChoice() {
@@ -241,6 +365,11 @@ class MainActivity : Activity() {
         val printManager = getSystemService(PRINT_SERVICE) as PrintManager
         val adapter = webView.createPrintDocumentAdapter(if (showingLive) "Portfolio_Android" else "Portfolio_V5_7")
         printManager.print("Portfolio Tracker", adapter, null)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        if (drawerOpen) closeDrawer() else super.onBackPressed()
     }
 
     override fun onDestroy() {
