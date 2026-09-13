@@ -11,14 +11,17 @@ android {
         applicationId = "fr.zeddcara.portfoliotracker"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0-v5.7"
+        versionCode = 2
+        versionName = "1.1-v5.7"
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -26,5 +29,8 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions { jvmTarget = "17" }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
