@@ -1,0 +1,6 @@
+key,value,comment
+portfolio_name,eToro,Nom affiché
+base_currency,USD,Devise du compte eToro
+snapshot_date,2026-08-19,Date de la capture servant de point de départ
+cash_anchor_usd,20.62,Solde total disponible visible sur la capture
+snapshot_eurusd,1.1605,Taux de référence snapshot : 1 EUR = 1.1605 USD

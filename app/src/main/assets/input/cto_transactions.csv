@@ -1,0 +1,32 @@
+﻿date,ticker,type,quantity,price,currency,comment
+2026-08-19,IPH.PA,BUY,155,1.43,EUR,Position d'ouverture issue de la capture
+2026-08-19,XRXDW,BUY,35,0.01,USD,Position d'ouverture issue de la capture
+2026-08-19,VLA.PA,BUY,5,2.1975,EUR,Position d'ouverture issue de la capture
+2026-08-19,SAN.PA,BUY,1,74.55,EUR,Position d'ouverture issue de la capture
+2026-08-19,TE.PA,BUY,2,29.64,EUR,Position d'ouverture issue de la capture
+2026-08-19,RNO.PA,BUY,2,28.565,EUR,"Position d'ouverture corrigée par l’utilisateur : 2 titres, PRU global 28.565 €"
+2026-08-19,ALO.PA,BUY,2,15.9,EUR,Position d'ouverture issue de la capture
+2026-08-19,PRAR.DE,BUY,5,17.9225,EUR,Position d'ouverture issue de la capture
+2026-08-19,VK.PA,BUY,1,18.71,EUR,Position d'ouverture issue de la capture
+2026-08-19,GRAB,BUY,14,3.56,USD,"Position d'ouverture corrigée par l’utilisateur : 14 titres, PRU global 3.56 USD; coût EUR historique estimé depuis le FX implicite du snapshot"
+2026-08-19,FRVIA.PA,BUY,7,9.186,EUR,Position d'ouverture issue de la capture
+2026-08-19,BX4.PA,BUY,121,0.6386,EUR,"Position d'ouverture confirmée par l’utilisateur : 121 titres, PRU 0.6386 €"
+2026-08-24,XRX,BUY,10,2.88,USD,Achat Xerox Holdings : 10 titres à 2.88 USD; FX historique figé pour cohérence cash/PV
+2026-08-28,IPH.PA,SELL,5,1.8960,EUR,PV partielle Innate Pharma - exécution 1/10
+2026-08-28,IPH.PA,SELL,10,1.8960,EUR,PV partielle Innate Pharma - exécution 2/10
+2026-08-28,IPH.PA,SELL,5,1.8960,EUR,PV partielle Innate Pharma - exécution 3/10
+2026-08-28,IPH.PA,SELL,8,1.8960,EUR,PV partielle Innate Pharma - exécution 4/10
+2026-08-28,IPH.PA,SELL,8,1.8920,EUR,PV partielle Innate Pharma - exécution 5/10
+2026-08-28,IPH.PA,SELL,10,1.8920,EUR,PV partielle Innate Pharma - exécution 6/10
+2026-08-28,IPH.PA,SELL,10,1.8920,EUR,PV partielle Innate Pharma - exécution 7/10
+2026-08-28,IPH.PA,SELL,11,1.8920,EUR,PV partielle Innate Pharma - exécution 8/10
+2026-08-28,IPH.PA,SELL,14,1.8920,EUR,PV partielle Innate Pharma - exécution 9/10
+2026-08-28,IPH.PA,SELL,15,1.8920,EUR,PV partielle Innate Pharma - exécution 10/10; PRU courtier restant 1.172
+2026-09-01,TE.PA,SELL,2,32.24,EUR,Clôture totale Technip Energies : 2 titres vendus à 32.24 EUR; coût historique 59.28 EUR
+2026-09-01,BX4.PA,SELL,30,0.6082,EUR,Vente partielle BX4 : 30 titres issus du lot ouvert à 0.6055 EUR
+2026-09-01,BX4.PA,SELL,36,0.6084,EUR,Vente partielle BX4 : 36 titres issus du lot ouvert à 0.6055 EUR; reste 55 titres; PRU courtier restant 0.6790 EUR
+2026-09-03,VLA.PA,SELL,5,3.034,EUR,Clôture totale Valneva : vente des 5 derniers titres à 3.034 EUR; coût historique 10.99 EUR
+2026-09-04,ALO.PA,BUY,2,16.49,EUR,Achat Alstom : 2 titres à 16.49 EUR
+2026-09-04,XRX,SELL,10,3.36,USD,Vente totale Xerox : 10 titres à 3.36 USD
+2026-09-11,TNG.PA,BUY,15,0.8820,EUR,Achat Transgene : 15 titres à 0.8820 EUR
+2026-09-11,PRAR.DE,BUY,3,17.5965,EUR,Achat Amundi Prime Euro Govies IE : 3 titres à 17.5965 EUR

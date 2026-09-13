@@ -1,0 +1,8 @@
+﻿key,value,comment
+portfolio_name,CTO,Nom affiché
+base_currency,EUR,Devise du compte
+initial_reference_eur,970,Valeur fixe de référence demandée
+snapshot_date,2026-08-19,Date de la capture servant de point de départ
+cash_anchor_eur,485.26,Ancre cash CTO corrigée : 485.26 EUR (référence à conserver dans les prochaines versions)
+benchmark_start_date,2024-01-02,Date de départ par défaut pour la comparaison aux benchmarks
+timezone,Europe/Paris,Fuseau horaire

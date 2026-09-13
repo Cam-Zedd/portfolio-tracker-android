@@ -1,0 +1,15 @@
+﻿ticker,name,yf_ticker,currency,asset_type,snapshot_value_eur,price_source,source_note,target_1,target_2,stop
+IPH.PA,Innate Pharma,IPH.PA,EUR,Action,274.03,AUTO,Capture utilisateur 19/08/2026,3.30,6.00,
+XRXDW,Warrant Xerox,XRXDW,USD,Warrant,8.29,AUTO,Capture utilisateur 19/08/2026; warrant Nasdaq Xerox,,,
+VLA.PA,Valneva,VLA.PA,EUR,Action,14.92,AUTO,Capture utilisateur 19/08/2026,,,
+SAN.PA,Sanofi,SAN.PA,EUR,Action,77.95,AUTO,Capture utilisateur 19/08/2026,,,
+TE.PA,Technip Energies,TE.PA,EUR,Action,60.84,AUTO,Capture utilisateur 19/08/2026,,,
+RNO.PA,Renault,RNO.PA,EUR,Action,58.02,AUTO,Capture utilisateur 19/08/2026; quantité corrigée à 2 titres,30.50,33.00,
+ALO.PA,Alstom,ALO.PA,EUR,Action,31.79,AUTO,Capture utilisateur 19/08/2026,17.50,22.00,
+PRAR.DE,Amundi Prime Euro Govies IE,PRAR.DE,EUR,ETF obligataire,89.33,AUTO,Capture utilisateur 19/08/2026; LU2089238898,,,
+VK.PA,Vallourec,VK.PA,EUR,Action,18.25,AUTO,Capture utilisateur 19/08/2026,,,
+GRAB,Grab Holdings,GRAB,USD,Action,41.06,AUTO,Capture utilisateur 19/08/2026; quantité corrigée à 14 titres,,,
+FRVIA.PA,Forvia,FRVIA.PA,EUR,Action,62.51,AUTO,Capture utilisateur 19/08/2026,,,
+BX4.PA,Amundi CAC 40 Daily -2x Inverse,BX4.PA,EUR,ETF inverse,69.61,AUTO,Capture utilisateur 19/08/2026; 121 titres @ PRU 0.6386 confirmé,,,
+XRX,Xerox Holdings,XRX,USD,Action,0,AUTO,"Achat du 24/08/2026 : 10 titres, PRU 2.88 USD",3.90,5.50,
+TNG.PA,Transgene,TNG.PA,EUR,Action,0,AUTO,Achat du 11/09/2026 : 15 titres à 0.8820 EUR,1.02,1.10,0.79

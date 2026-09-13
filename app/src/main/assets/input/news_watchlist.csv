@@ -1,0 +1,13 @@
+﻿ticker,name,yf_ticker,currency,profile,aliases,enabled,min_score,target_1,target_2,stop
+IPH.PA,Innate Pharma,IPH.PA,EUR,BIOTECH,Innate|Innate Pharma SA,1,35,3.30,6.00,
+VLA.PA,Valneva,VLA.PA,EUR,BIOTECH,Valneva SE,1,35,,,
+SAN.PA,Sanofi,SAN.PA,EUR,PHARMA,Sanofi SA,1,35,,,
+TE.PA,Technip Energies,TE.PA,EUR,INDUSTRIE,Technip Energies NV|TechnipEnergies,1,35,,,
+RNO.PA,Renault,RNO.PA,EUR,AUTO,Renault Group|Groupe Renault|RNO,1,35,30.50,33.00,
+ALO.PA,Alstom,ALO.PA,EUR,INDUSTRIE,Alstom SA,1,35,17.50,22.00,
+VK.PA,Vallourec,VK.PA,EUR,INDUSTRIE,Vallourec SA,1,35,,,
+GRAB,Grab Holdings,GRAB,USD,TECH,Grab Holdings Ltd|Grab Holdings Limited,1,35,,,
+FRVIA.PA,Forvia,FRVIA.PA,EUR,AUTO,Faurecia|Forvia SE,1,35,,,
+XRX,Xerox Holdings,XRX,USD,TECH,Xerox|Xerox Holdings Corporation,1,35,3.90,5.50,
+TNG.PA,Transgene,TNG.PA,EUR,BIOTECH,Transgene|Transgene SA,1,35,1.02,1.10,0.79
+BIDU,Baidu,BIDU,USD,TECH,Baidu|Baidu Inc|Baidu.com,1,35,,,

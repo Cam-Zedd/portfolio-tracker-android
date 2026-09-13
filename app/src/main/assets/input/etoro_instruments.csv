@@ -1,0 +1,4 @@
+ticker,name,yf_ticker,currency,asset_type,snapshot_value_usd,price_source,source_note,target_1,target_2,stop
+TLT,iShares 20+ Year Treasury Bond ETF,TLT,USD,ETF obligataire,1939.62,AUTO,Capture eToro 19/08/2026,,,
+TMF,Direxion Daily 20+ Year Treasury Bull 3X Shares,TMF,USD,ETF obligataire levier,378.25,AUTO,Capture eToro 19/08/2026,,,
+WEXU.DE,Amundi MSCI World Ex USA UCITS ETF Acc,WEXU.DE,USD,ETF actions,89.15,AUTO,Capture eToro 19/08/2026,,,

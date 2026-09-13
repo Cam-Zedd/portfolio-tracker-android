@@ -1,0 +1,5 @@
+key,value,comment
+portfolio_name,PEA,Nom affiché
+base_currency,EUR,Devise du compte
+snapshot_date,2026-08-19,Date de la capture servant de point de départ
+cash_anchor_eur,77.90,Fonds disponibles visibles sur la capture au point de départ

@@ -1,0 +1,6 @@
+name,yf_ticker,currency,description
+CAC 40 (proxy ETF capitalisant),C40.PA,EUR,Amundi CAC 40 ETF - proxy investissable avec dividendes réinvestis
+S&P 500 (proxy SPY),SPY,USD,ETF S&P 500; performance convertie en EUR
+MSCI World (proxy URTH),URTH,USD,ETF MSCI World; performance convertie en EUR
+Dow Jones,^DJI,USD,Dow Jones Industrial Average; performance convertie en EUR
+Nikkei 225,^N225,JPY,Nikkei 225; performance convertie en EUR

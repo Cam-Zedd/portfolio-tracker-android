@@ -1,0 +1,5 @@
+ticker,name,yf_ticker,currency,asset_type,snapshot_value_eur,price_source,source_note,target_1,target_2,stop
+WPEA.PA,iShares MSCI World Swap PEA,WPEA.PA,EUR,ETF,487.56,AUTO,Capture utilisateur 19/08/2026; ISIN IE0002XZSHO1,,,
+ETZD.PA,BNP Paribas Easy STOXX Europe 600 C/D,ETZD.PA,EUR,ETF,150.12,AUTO,Capture utilisateur 19/08/2026; ISIN FR0011550672,,,
+PAEEM.PA,Amundi PEA Emergent ESG Transition,PAEEM.PA,EUR,ETF,70.16,AUTO,Capture utilisateur 19/08/2026; ISIN FR0013412020,,,
+AWAT.PA,Amundi PEA Eau MSCI Water,AWAT.PA,EUR,ETF,96.3,AUTO,Capture utilisateur 19/08/2026; ISIN FR0011882364,,,

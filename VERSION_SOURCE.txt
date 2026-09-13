@@ -1,0 +1,4 @@
+Source de référence : Portfolio_tracker_V5_7_MASTER_FULL_NO_SETUP_BAT.zip
+Date du paquet : 2026-09-11
+Changelog V5.7 : PDF HTML Chromium/Edge, Plotly local, heatmap treemap, Transgene, PRAR.DE, Baidu, retrait setup_pdf_html.bat.
+Port Android V1 créé à partir de ce paquet, sans modifier les CSV sources embarqués.
